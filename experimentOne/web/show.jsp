@@ -15,7 +15,7 @@
     <jsp:setProperty name="bean" property="*" />
     <div align="center">
         <p><%= bean.getNumBefore() %>经过<%= bean.getNumSystem() %>后的结果是：</p>
-        <p>结果：<%= bean.getNumAfter() %></p>
+        <p>结果：<%= bean.getNumAfter((String) session.getAttribute("userName")) %></p>
         <a href="homePage.jsp"><button type="button">返回主页面</button></a>
     </div>
 </body>

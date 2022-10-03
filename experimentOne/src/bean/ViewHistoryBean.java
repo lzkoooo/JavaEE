@@ -7,44 +7,43 @@ package bean;// -*- coding = utf-8 -*-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ViewHistoryBean
 {
-    private String userName;
     private ResultSet rs;
+    private Connection conn;
+    private PreparedStatement pstmt;
 
     public ViewHistoryBean(){}
 
-    public void setUserName(String userName)
+    public ResultSet getHistory(String userName)
     {
-        this.userName = userName;
-    }
-
-    public ResultSet getHistory()
-    {
-        history();
+        history(userName);
         return rs;
     }
 
-    public void history()
+    public void history(String userName)
     {
         try
         {
             ConnectionBean connection = new ConnectionBean();
-            Connection conn = connection.getConnect();
+            conn = connection.getConnect();
 
             String  sql = "SELECT * FROM viewhistory WHERE(userName = ?)";
 
-            PreparedStatement pstmt= conn.prepareStatement(sql);
+            pstmt= conn.prepareStatement(sql);
             pstmt.setString(1, userName);
             rs=pstmt.executeQuery();
-
-            pstmt.close();
-            conn.close();
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
+    }
+
+    public void disconnect() throws SQLException {
+        pstmt.close();
+        conn.close();
     }
 }

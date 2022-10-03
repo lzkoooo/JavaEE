@@ -15,31 +15,31 @@
 <body>
     <h3>历史查询记录页面</h3>
     <jsp:useBean id="history" class="bean.ViewHistoryBean"/>
-    <jsp:setProperty name="history" property="userName" value=<%session.getAttribute("userName")%>/>
-    <%
-        ResultSet rs;
-        rs = history.getHistory();
-        out.println(session.getAttribute("userName") + "的历史转换记录:");
-        out.println("查询数据          查询操作           查询结果");
-        try
-        {
-            while (rs.next())
+    <jsp:setProperty name="history" property="*"/>
+    <pre>
+        <%
+            ResultSet rs;
+            rs = history.getHistory((String) session.getAttribute("userName"));
+            out.println(session.getAttribute("userName") + "的历史转换记录:");
+            out.println("查询数据          查询操作           查询结果");
+            try
             {
-                out.print(rs.getString("inputNumber"));
-                out.print("          ");
-                out.print(rs.getString("operate"));
-                out.print("          ");
-                out.print(rs.getString("result"));
-                out.println();
+                while (rs.next())
+                {
+                    out.print(rs.getString("inputNumber"));
+                    out.print("          ");
+                    out.print(rs.getString("operate"));
+                    out.print("          ");
+                    out.println(rs.getString("result"));
+                }
+                rs.close();
+                history.disconnect();
             }
-            rs.close();
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-
-
-    %>
+            catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        %>
+    </pre>
 </body>
 </html>

@@ -12,7 +12,7 @@ import java.util.Objects;
 public class ConversionBean
 {
     private int numBefore, numAfter;
-    private String numSystem, userName;
+    private String numSystem;
 
     public ConversionBean(){}
 
@@ -22,32 +22,28 @@ public class ConversionBean
     public void setNumSystem(String numSystem) {
         this.numSystem = numSystem;
     }
-    public void setUserName(String userName)
-    {
-        this.userName = userName;
-    }
 
     public int getNumBefore() {
         return numBefore;
     }
-    public int getNumAfter() {
-        conversion();
+    public int getNumAfter(String userName) {
+        conversion(userName);
         return numAfter;
     }
     public String getNumSystem() {
         return numSystem;
     }
 
-    private void conversion()
+    private void conversion(String userName)
     {
         if(Objects.equals(numSystem, "二进制转十进制"))
             numAfter = Integer.valueOf(String.valueOf(numBefore), 2);
         else
             numAfter = Integer.parseInt(Integer.toBinaryString(numBefore));
-        saveHistory();
+        saveHistory(userName);
     }
 
-    private void saveHistory()
+    private void saveHistory(String userName)
     {
         try
         {
@@ -61,9 +57,9 @@ public class ConversionBean
             pstmt.setString(2, String.valueOf(numBefore));
             pstmt.setString(3, numSystem);
             pstmt.setString(4, String.valueOf(numAfter));
-            ResultSet rs=pstmt.executeQuery();
+            int rs = pstmt.executeUpdate();
 
-            rs.close();
+            if(rs > 0) System.out.println("添加成功");
             pstmt.close();
             conn.close();
         }
