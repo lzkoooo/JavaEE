@@ -68,4 +68,26 @@ public class ConversionBean
             e.printStackTrace();
         }
     }
+
+    public void deleteHistory(String userName)
+    {
+        try
+        {
+            ConnectionBean connection = new ConnectionBean();
+            Connection conn = connection.getConnect();
+
+            String  sql = "DELETE FROM viewhistory WHERE userName=?";
+
+            PreparedStatement pstmt= conn.prepareStatement(sql);
+            pstmt.setString(1, userName);
+            pstmt.executeUpdate();
+
+            pstmt.close();
+            conn.close();
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
 }

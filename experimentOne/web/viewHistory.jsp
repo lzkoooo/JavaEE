@@ -13,10 +13,11 @@
     <title>History</title>
 </head>
 <body>
-    <h3>历史查询记录页面</h3>
-    <jsp:useBean id="history" class="bean.ViewHistoryBean"/>
-    <jsp:setProperty name="history" property="*"/>
-    <pre>
+    <div align="center">
+        <h3>历史查询记录页面</h3>
+        <jsp:useBean id="history" class="bean.ViewHistoryBean" scope="request"/>
+        <jsp:setProperty name="history" property="*"/>
+        <pre>
         <%
             ResultSet rs;
             rs = history.getHistory((String) session.getAttribute("userName"));
@@ -40,6 +41,11 @@
                 e.printStackTrace();
             }
         %>
+            <a href="homePage.jsp"><button type="button">返回主页面</button></a>
+            <a href="deleteHistory.jsp"><button>清除历史记录</button></a>
     </pre>
+    </div>
+
+
 </body>
 </html>
