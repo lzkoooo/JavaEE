@@ -1,7 +1,7 @@
 // -*- coding = utf-8 -*-
 // @Time : 2022/10/3 11:39
 // @Author : 李兆堃
-// @File : Login.java
+// @File : LoginBean.java
 // @Software : IntelliJ IDEA
 package bean;
 

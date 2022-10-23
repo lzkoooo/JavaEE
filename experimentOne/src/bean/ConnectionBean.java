@@ -1,9 +1,10 @@
-package bean;// -*- coding = utf-8 -*-
+// -*- coding = utf-8 -*-
 // @Time : 2022/10/3 12:02
 // @Author : 李兆堃
 // @File : dataConnection.java
 // @Software : IntelliJ IDEA
 
+package bean;
 import java.sql.Connection;
 import java.sql.DriverManager;
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/Login.css">
+</head>
+<body>
+<header>
+</header>
+<main>
+    <div class="title">
+        <span class="title">新一代选课系统</span>
+    </div>
+    <div class="main">
+        <span class="welcome">欢迎来到选课系统</span>
+        <hr>
+        <form action="LoginServlet" name="loginForm" method="post">
+            <div class="login">
+                <label for="account">账号：</label>
+                <input type="text"  id="account" name="userId" placeholder="请输入ID">
+            </div>
+            <div class="login">
+                <label for="password">密码：</label>
+                <input type="password" id="password" placeholder="请输入密码" name="password">
+            </div>
+            <div class="loginButton">
+                <input type="submit" name="loginButton" value="学生登录">
+                <input type="submit" name="loginButton" value="教师登录">
+            </div>
+        </form>
+    </div>
+</main>
+<footer>
+    <span>@Designed by 李兆堃</span>
+</footer>
+</body>
+</html>

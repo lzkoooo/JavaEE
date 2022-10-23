@@ -1,0 +1,247 @@
+html, body
+{
+    width: 100vw;
+    height:100vh;
+    margin:0 0;
+    overflow:hidden;
+    background:url(/file/教师主页.jpg) no-repeat center fixed;
+    background-size:cover;
+}
+
+main {
+    width: 100%;
+    height:100%;
+    z-index:4;
+    float:left;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#select {
+    box-sizing: border-box;
+    border:10px double black;
+    border-radius:50%;
+    background:rgba(207, 161, 161,0.8);
+
+    opacity:100%;
+    color:rgba(218,207,221,1);
+
+
+    font:bolder 2rem/2rem 南构流韵体;
+}
+
+section {
+    width: 95vh;
+    height:95vh;
+    margin:0;
+    padding:0;
+    position:relative;
+
+    border:1rem double rgba(128,128,128,0);
+    border-radius:50%;
+    /*box-shadow:6px 6px 3px 2px #e88f29, -6px 6px 3px 2px #e88f29, -6px -6px 3px 2px #e88f29, 6px -6px 3px 2px #e88f29;*/
+
+    display:grid;
+    grid-template-rows:repeat(3, 33%);
+    grid-template-columns:repeat(3, 33%);
+
+
+}
+
+section>div {
+    width:100%;
+    height:100%;
+
+    padding:0;
+    margin:0;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+div:not(#select)
+{
+
+    transition:all 2s ease-out;
+    opacity:0;
+
+}
+
+
+/*重新设置状态*/
+section>div:nth-child(1) {
+    transform-origin:150% 150%;
+    transform: rotate(-315deg);
+}
+section>div:nth-child(2) {
+    transform-origin:50% 150%;
+}
+section>div:nth-child(3) {
+    transform-origin:-50% 150%;
+    transform: rotate(-45deg);
+}
+section>div:nth-child(4) {
+    transform-origin:150% 50%;
+    transform: rotate(-270deg);
+}
+
+section>div:nth-child(6) {
+    transform-origin:-50% 50%;
+    transform: rotate(-90deg);
+}
+section>div:nth-child(7) {
+    transform-origin:150% -50%;
+    transform: rotate(-225deg);
+}
+section>div:nth-child(8) {
+    transform-origin:50% -50%;
+    transform: rotate(-180deg);
+}
+section>div:nth-child(9) {
+    transform-origin:-50% -50%;
+    transform: rotate(-135deg);
+}
+
+
+div[class]>*
+{
+    display:block;
+}
+
+/*span:not(.hr,.select)*/
+input
+{
+    width:90%;
+    height:3rem;
+    padding:0;
+
+    font:lighter 1.7rem/2.2rem 南构流韵体;
+    color: #e88f29;
+
+    text-align: center;
+
+    border:0.3rem double black;
+    border-radius:1rem;
+
+    background:rgba(207, 161, 161,0.8);
+}
+
+div.top
+{
+    border-top:none;
+    border-bottom:none;
+}
+
+div.left, div.right
+{
+    border-left:none;
+    border-right:none;
+}
+
+div.bottom
+{
+    border-top:none;
+    border-bottom:none;
+}
+
+
+/*分割线*/
+.hr
+{
+    width: 100%;
+    height:2rem;
+    line-height: 1rem;
+
+    color: gray;
+
+    border:0.4rem double black;
+    border-radius:1.5rem;
+    border-left:none;
+    border-right:none;
+
+    background:linear-gradient(lightskyblue,orangered);
+
+    overflow:hidden;
+}
+div:nth-child(1)>.hr, div:nth-child(9)>.hr
+{
+    transform:rotate(45deg);
+}
+div:nth-child(3)>.hr, div:nth-child(7)>.hr
+{
+    transform:rotate(135deg);
+}
+
+/*改位置*/
+div:nth-child(1)
+{
+
+}
+div:nth-child(3)
+{
+    transform:translate(-25%,25%);
+}
+div:nth-child(7)
+{
+    transform:translate(25%,-25%);
+}
+div:nth-child(9)
+{
+    transform:translate(-25%,-25%);
+}
+
+
+
+/*鼠标悬停效果*/
+section:hover>div:not(#select)
+{
+    animation:unfold 3s ease-in 1, rotate 20s  linear 3s infinite;
+}
+section:hover
+{
+    animation:border 3s ease-in 1;
+    animation-fill-mode:forwards;
+}
+
+div.fun:hover>input
+{
+    background-color:white;
+}
+
+@keyframes rotate
+{
+    0%{
+        transform:rotate(0);
+        opacity:100%;
+    }
+
+    100%{
+        opacity:100%;
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes unfold
+{
+    0%{
+        opacity:0;
+    }
+
+    100%{
+        opacity:100%;
+        transform: rotate(0);
+    }
+}
+
+@keyframes border
+{
+    0%{
+        border-color:rgba(128,128,128,0);
+    }
+
+    100%{
+        border-color:rgba(128,128,128,1);
+    }
+}

@@ -1,9 +1,10 @@
-package bean;// -*- coding = utf-8 -*-
+// -*- coding = utf-8 -*-
 // @Time : 2022/10/3 15:48
 // @Author : 李兆堃
-// @File : viewHistory.java
+// @File : viewHistoryBean.java
 // @Software : IntelliJ IDEA
 
+package bean;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

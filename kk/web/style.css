@@ -1,0 +1,37 @@
+body {
+    background-image: linear-gradient(to right, #999999, #330867);
+}
+
+p, h1 {
+    font: normal lighter 30px/50px  'Ma Shan Zheng';
+    color: rgba(109, 133, 207, 0.7);
+    height: 50px;
+    width: 85%;
+    border: 5px double;
+    margin-left: 25px;
+}
+
+#div1 {
+    height: 70px;
+    border: 0;
+}
+
+div {
+    width: 400px;
+    height: 550px;
+    margin: 50px auto;
+    text-align: center; /*设置文本水平居中*/
+    overflow: hidden; /*防止内容超出容器或者产生自动换行*/
+    background-image: linear-gradient(to right, #F8938F, #B7DFED);
+}
+
+button {
+    background-color: #F8ABAE;
+    width: 70px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid black;
+    color: #CDDCF1;
+    margin-top: 100px;
+
+}

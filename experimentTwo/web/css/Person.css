@@ -1,0 +1,6 @@
+.inputbox
+{
+    border: 3px solid orange;
+    border-radius: 1rem;
+    background:linear-gradient(to right,whitesmoke, antiquewhite);
+}
